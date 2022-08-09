@@ -149,6 +149,96 @@ export class TblIpfCancellations extends Entity {
   })
   cancellationletter?: string;
 
+  @property({
+    type: 'string',
+  })
+  reinstatementletter?: string;
+
+  @property({
+    type: 'string',
+  })
+  cancellationcomment?: string;
+
+  @property({
+    type: 'string',
+  })
+  cancellationdate?: string;
+
+  @property({
+    type: 'string',
+  })
+  reinstatementdate?: string;
+
+  @property({
+    type: 'number',
+  })
+  paymentamount?: number;
+
+  @property({
+    type: 'string',
+  })
+  paymentdate?: string;
+
+  @property({
+    type: 'number',
+  })
+  writeoffamount?: number;
+
+  @property({
+    type: 'Date',
+  })
+  stagedate?: Date;
+
+  @property({
+    type: 'string',
+  })
+  emailaddress?: string;
+
+  @property({
+    type: 'string',
+  })
+  ipfreasondetails?: string;
+
+  @property({
+    type: 'string',
+  })
+  ipfreason?: string;
+
+  @property({
+    type: 'string',
+  })
+  checknumber?: string;
+
+  @property({
+    type: 'string',
+  })
+  loancleared?: string;
+
+  @property({
+    type: 'string',
+  })
+  datestatus?: string;
+
+  @property({
+    type: 'number',
+  })
+  woffamount?: number;
+
+  @property({
+    type: 'string',
+  })
+  wofftype?: string;
+
+  @property({
+    type: 'string',
+  })
+  woffstory?: string;
+
+  @property({
+    type: 'string',
+  })
+  followupcomment?: string;
+
   // Define well-known properties here
 
   // Indexer property to allow additional data
