@@ -1,13 +1,14 @@
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
-import {
-  RestExplorerBindings,
-  RestExplorerComponent,
-} from '@loopback/rest-explorer';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
+import {
+  RestExplorerBindings,
+  RestExplorerComponent
+} from '@loopback/rest-explorer';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
+import {OracleDataSource} from './datasources';
 import {MySequence} from './sequence';
 
 export {ApplicationConfig};
@@ -17,6 +18,26 @@ export class EcollectApisLb4V3Application extends BootMixin(
 ) {
   constructor(options: ApplicationConfig = {}) {
     super(options);
+
+    const db_host = process.env.DB_HOST ?? '127.0.0.1';
+    const db_port = process.env.DB_PORT ?? 1564;  //1564
+    const db_user = process.env.DB_USERNAME ?? 'ecol';
+    const db_pass = process.env.DB_PASSWORD ?? 'ecol';
+    const database = process.env.DB_DATABASE ?? 'ORCLCDB.localdomain';  // ORCLCDB.localdomain
+
+    this.bind('datasources.config.oracle').to({
+      name: 'oracle',
+      connector: 'oracle',
+      url: '',
+      host: db_host,
+      port: db_port,
+      user: db_user,
+      password: db_pass,
+      database: database,
+      useNewUrlParser: true,
+      maxOfflineRequests: 20
+    });
+    this.bind('datasources.oracle').toClass(OracleDataSource);
 
     // Set up the custom sequence
     this.sequence(MySequence);
