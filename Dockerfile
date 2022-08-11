@@ -20,7 +20,7 @@ RUN npm run build
 ENV HOST=0.0.0.0 PORT=3000
 
 EXPOSE ${PORT}
-CMD [ "node", "." ]
+CMD [ "npm", "start" ]
 
 
-# docker build --no-cache -t docker.io/migutak/oraclenode-apis-lb4-v3:2.0 .
+# docker build --no-cache -t docker.io/migutak/oraclenode-apis-lb4-v3:2.1 .
