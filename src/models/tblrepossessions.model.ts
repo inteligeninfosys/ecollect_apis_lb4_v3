@@ -437,6 +437,16 @@ export class Tblrepossessions extends Entity {
   })
   marketer_complete?: boolean;
 
+  @property({
+    type: 'string',
+  })
+  yard_status?: string;
+
+  @property({
+    type: 'string',
+  })
+  yard_followup?: string;
+
   // Define well-known properties here
 
   // Indexer property to allow additional data
