@@ -23,4 +23,4 @@ EXPOSE ${PORT}
 CMD [ "npm", "start" ]
 
 
-# docker build --no-cache -t docker.io/migutak/oraclenode-apis-lb4-v3:2.1 .
+# docker build --no-cache -t docker.io/migutak/oraclenode-apis-v2-lb4-v3:3.1 .
